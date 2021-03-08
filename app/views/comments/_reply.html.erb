@@ -6,7 +6,7 @@
 		    <div class="media-body">
 		    	<h5 class="mt-0 mb-1" style="color: green"><%= comment.user.name %></h5>
 		    	<%= reply.body %>
-		    	<%#= link_to 'reply', new_post_comment_path(@post, parent_id: comment.id), remote: true, class: 'd-block' %>
+		    	<%= link_to 'reply', new_post_comment_path(@post, parent_id: comment.id), remote: true, class: 'd-block' %>
 		    </div>
 		 </li>
 		</ul>    	
