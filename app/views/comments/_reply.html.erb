@@ -1,0 +1,15 @@
+<div class="jumbotron ml-2 my-1 p-1">
+  <div class="">
+  	<ul class="list-unstyled">
+		  <li class="media">
+		    <img class="mr-3" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Avatar_icon_green.svg/1024px-Avatar_icon_green.svg.png" alt="Generic placeholder image" style="width:30px;">
+		    <div class="media-body">
+		    	<h5 class="mt-0 mb-1" style="color: green"><%= comment.user.name %></h5>
+		    	<%= reply.body %>
+		    	<%#= link_to 'reply', new_post_comment_path(@post, parent_id: comment.id), remote: true, class: 'd-block' %>
+		    </div>
+		 </li>
+		</ul>    	
+  </div>
+</div>
+

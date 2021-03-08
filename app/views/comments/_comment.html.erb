@@ -1,0 +1,22 @@
+<% unless comment.parent_id || !comment.persisted? %>
+  <div class="jumbotron my-2 p-2">
+  	<ul class="list-unstyled">
+		  <li class="media">
+		    <img class="mr-3" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/72/Avatar_icon_green.svg/1024px-Avatar_icon_green.svg.png" alt="Generic placeholder image" style="width:50px;">
+		    <div class="media-body">
+		      <h5 class="mt-0 mb-1" style="color: green"><%= comment.user.name %></h5>
+		      <%= comment.body %>
+		      
+			    	<%= link_to 'reply', new_post_comment_path(@post, parent_id: comment.id), remote: true, class: 'd-block' %>
+			    
+			    <% if comment.replies.any? %>
+			    	<% comment.replies.each do |reply| %> 
+			      		<%= render partial: 'comments/reply', locals: { reply: reply, comment: comment } %>
+			    	<% end %>
+			    <% end %>	
+		    </div>
+		  </li>
+	 </ul> 
+  </div> 
+ <div id="reply-form-<%= comment.id %>"></div>
+<% end %>

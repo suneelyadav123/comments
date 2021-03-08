@@ -1,0 +1,22 @@
+<div class="card my-1">
+  <h2 class="card-header">
+    <%= @post.title %>
+  </h2>
+  <div class="card-body pt-2">
+    <div class="my-1">
+      <%= simple_format(@post.body) %>
+    </div>
+    <hr>
+    <% if @post.comments.any? %>
+    <p class="font-weight-bold mt-2">Comments(<%= @post.comments.size%>) </p>
+    <%= render @post.comments %>
+    <% end %>
+  </div> 
+</div>
+<%= form_with(model: [@post, @post.comments.build]) do |f| %>
+  <div class="form-group my-2">
+    <%= f.label 'New comment' %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>
